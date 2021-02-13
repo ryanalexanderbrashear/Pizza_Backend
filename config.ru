@@ -43,8 +43,8 @@ end
 if DB.table_exists?(:consumption) === false then 
   DB.create_table :consumption do
     primary_key :id
-    foreign_key :person_id, :people
-    foreign_key :pizza_id, :pizzas
+    foreign_key :person_id, :people, on_delete: :cascade
+    foreign_key :pizza_id, :pizzas, on_delete: :cascade
     Date :date
   end
 else 
@@ -67,7 +67,7 @@ pizzas = csv_data.by_col[1].uniq
 # Insert the unique name entries into the pizzas table
 pizzas.map { |meat_type| DB[:pizzas].insert(:meat_type => meat_type) }
 
-# Map through the CSV data to get the person, pizzsa, and date
+# Map through the CSV data to get the person, pizza, and date
 csv_data.map { |data|
   person = data[0]
   pizza = data[1]
