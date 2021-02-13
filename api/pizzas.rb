@@ -1,4 +1,4 @@
-require 'Sequel'
+require 'sequel'
 
 class Pizzas < Grape::API
   version 'v1'

@@ -1,6 +1,6 @@
-require 'Sequel'
+require 'sequel'
 
-class Persons < Grape::API
+class People < Grape::API
   version 'v1'
   format :json
 

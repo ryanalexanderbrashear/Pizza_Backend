@@ -10,7 +10,7 @@ module API
     prefix :api
 
     # Mount classes containing endpoints
-    mount Persons
+    mount People
     mount Pizzas
 
     # Simple endpoint to get the current status of our API.
