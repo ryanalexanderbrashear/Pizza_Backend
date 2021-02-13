@@ -6,6 +6,6 @@ class Persons < Grape::API
 
   get '/person' do
     people = DB[:people]
-    { count: people.count }
+    { people: people.map([:id, :name]) }
   end
 end
