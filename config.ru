@@ -1,6 +1,7 @@
 # config.ru
 require 'sequel'
 require 'rack/cors'
+require 'csv'
 
 # CORS configuration to allow frontend
 use Rack::Cors do
@@ -51,6 +52,8 @@ else
   # If the table already exists, clear it out upon server start (for testing purposes)
   DB[:consumption].delete
 end
+
+csv_data = CSV.read("data.csv")
 
 require File.expand_path('../api/api', __FILE__)
 
