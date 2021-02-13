@@ -11,6 +11,7 @@ module API
 
     # Mount files containing API calls
     mount Persons
+    mount Pizzas
 
     # Simple endpoint to get the current status of our API.
     get :status do
