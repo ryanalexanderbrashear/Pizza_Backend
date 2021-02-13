@@ -11,6 +11,13 @@ class Pizzas < Grape::API
   end
 
   params do
+    requires :meat_type, type: String, desc: "Meat type on the pizza"
+  end
+  get '/pizzasByMeat' do
+    pizzas.where(meat_type: params[:meat_type]).all
+  end
+
+  params do
     requires :name, type: String, desc: "Name of the pizza"
     requires :meat_type, type: String, desc: "Meat type on the pizza"
   end
