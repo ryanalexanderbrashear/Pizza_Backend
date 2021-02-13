@@ -7,7 +7,7 @@ class Pizzas < Grape::API
   pizzas = DB[:pizzas]
 
   get '/pizza' do
-    { pizzas: pizzas.map([:id, :name, :meat_type]) }
+    pizzas.all
   end
 
   params do
@@ -16,5 +16,14 @@ class Pizzas < Grape::API
   end
   post '/pizza' do
     pizzas.insert(:name => params[:name], :meat_type => params[:meat_type])
+  end
+
+  params do
+    requires :id, type: Integer, desc: 'ID of the pizza to update'
+    requires :name, type: String, desc: "Name of the pizza"
+    requires :meat_type, type: String, desc: "Meat type on the pizza"
+  end
+  put '/pizza' do
+    pizzas.where(id: params[:id]).update(:name => params[:name], :meat_type => params[:meat_type])
   end
 end

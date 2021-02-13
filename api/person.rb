@@ -7,7 +7,7 @@ class Persons < Grape::API
   people = DB[:people]
 
   get '/people' do
-    people.map([:id, :name])
+    people.all
   end
 
   params do
