@@ -1,5 +1,16 @@
 # config.ru
-require 'Sequel'
+require 'sequel'
+require 'rack/cors'
+
+use Rack::Cors do
+  allow do
+    origins 'http://localhost:3000'
+
+    resource '*',
+      headers: :any,
+      methods: [:get, :post, :put, :patch, :delete, :options, :head]
+  end
+end
 
 DB = Sequel.connect('postgres://localhost/pizza')
 

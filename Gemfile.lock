@@ -45,6 +45,8 @@ GEM
     rack (2.2.3)
     rack-accept (0.4.5)
       rack (>= 0.4)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     ruby2_keywords (0.0.4)
     sequel (5.41.0)
     tzinfo (2.0.4)
@@ -59,6 +61,7 @@ DEPENDENCIES
   grape
   pg
   rack
+  rack-cors
   sequel
   webrick
 
