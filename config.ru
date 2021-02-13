@@ -32,7 +32,6 @@ end
 if DB.table_exists?(:pizzas) === false then 
   DB.create_table :pizzas do
     primary_key :id
-    String :name
     String :meat_type
   end
 else 
@@ -53,7 +52,34 @@ else
   DB[:consumption].delete
 end
 
-csv_data = CSV.read("data.csv")
+# Parse the CSV file
+csv_data = CSV.parse(File.read("data.csv"), headers: true)
+
+# Obtain the unique people name entries from the CSV data
+people = csv_data.by_col[0].uniq
+
+# Insert the unique name entries into the people table
+people.map { |name| DB[:people].insert(:name => name) }
+
+# Obtain the unique pizza meat type entries from the CSV data
+pizzas = csv_data.by_col[1].uniq
+
+# Insert the unique name entries into the pizzas table
+pizzas.map { |meat_type| DB[:pizzas].insert(:meat_type => meat_type) }
+
+# Map through the CSV data to get the person, pizzsa, and date
+csv_data.map { |data|
+  person = data[0]
+  pizza = data[1]
+  date = data[2]
+
+  # Get the corresponding IDs from the people and pizzas tables to insert into this record
+  person_id = DB[:people].where(:name => person).first[:id]
+  pizza_id = DB[:pizzas].where(:meat_type => pizza).first[:id]
+
+  # Insert the record into the consumption table
+  DB[:consumption].insert(:person_id => person_id, :pizza_id => pizza_id, :date => date)
+}
 
 require File.expand_path('../api/api', __FILE__)
 
