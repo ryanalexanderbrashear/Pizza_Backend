@@ -26,4 +26,11 @@ class Pizzas < Grape::API
   put '/pizza' do
     pizzas.where(id: params[:id]).update(:name => params[:name], :meat_type => params[:meat_type])
   end
+
+  params do
+    requires :id, type: Integer, desc: 'ID of the pizza to delete'
+  end
+  delete '/pizza' do
+    pizzas.where(id: params[:id]).delete
+  end
 end
