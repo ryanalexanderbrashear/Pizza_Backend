@@ -9,7 +9,7 @@ module API
     format :json
     prefix :api
 
-    # Mount files containing API calls
+    # Mount classes containing endpoints
     mount Persons
     mount Pizzas
 

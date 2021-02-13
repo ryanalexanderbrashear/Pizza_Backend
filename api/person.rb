@@ -6,10 +6,13 @@ class Persons < Grape::API
 
   people = DB[:people]
 
+  # Endpoint to get all people
   get '/people' do
     people.all
   end
 
+  # Endpoint to get a specific person
+  # params: name
   params do
     requires :name, type: String, desc: "Name of the person"
   end
