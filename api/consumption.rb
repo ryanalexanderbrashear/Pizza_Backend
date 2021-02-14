@@ -12,7 +12,7 @@ class Consumption < Grape::API
   get '/consumption' do
     consumption_data = people.join(consumption, person_id: :id)
     consumption_data = pizza.join(consumption_data, pizza_id: :id)
-    consumption_data.all
+    consumption_data.order(:date).all
   end
 
   # Endpoint to get all consumption records by meat type
