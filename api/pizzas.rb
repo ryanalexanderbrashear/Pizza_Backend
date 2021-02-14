@@ -11,15 +11,6 @@ class Pizzas < Grape::API
     pizzas.all
   end
 
-  # Endpoint to retrieve pizzas based on meat type
-  # Params: meat_type
-  params do
-    requires :meat_type, type: String, desc: "Meat type on the pizza"
-  end
-  get '/pizzasByMeat' do
-    pizzas.where(meat_type: params[:meat_type]).all
-  end
-
   # Endpoint to create a new pizza
   # Params: meat_type
   params do

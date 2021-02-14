@@ -12,6 +12,7 @@ module API
     # Mount classes containing endpoints
     mount People
     mount Pizzas
+    mount Consumption
 
     # Simple endpoint to get the current status of our API.
     get :status do
