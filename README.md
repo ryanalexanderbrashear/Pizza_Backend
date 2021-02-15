@@ -9,3 +9,7 @@ In order to run this API, a local Postgres database with the name "pizza" is req
 
 2. To start the server:
   Run the command **rackup** in the project root.
+
+## Notes
+
+Currently, each time the server is started, each of the database tables is cleared out and reseeded from the included CSV file. This means that there is currently not data persistence across database starts.
