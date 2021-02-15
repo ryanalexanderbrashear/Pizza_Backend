@@ -15,7 +15,7 @@ use Rack::Cors do
 end
 
 # Connect to postgres database hosted on Heroku
-DB = Sequel.connect('postgres://bgkpskvnikound:4ad34782cbd59974a98e602deb657bfaf30309b70e98c5f1af1fc53d1a31c3f4@ec2-34-203-155-237.compute-1.amazonaws.com:5432/d9vbv55mt1k6s2')
+DB = Sequel.connect('postgres://bgkpskvnikound:4ad34782cbd59974a98e602deb657bfaf30309b70e98c5f1af1fc53d1a31c3f4@ec2-34-203-155-237.compute-1.amazonaws.com:5432/d9vbv55mt1k6s2', adapter: 'postgres')
 
 # Create the people table if it does not exist
 if DB.table_exists?(:people) === false then 
