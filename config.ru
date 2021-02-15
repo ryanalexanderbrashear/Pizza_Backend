@@ -3,7 +3,7 @@ require 'sequel'
 require 'rack/cors'
 require 'csv'
 
-# CORS configuration to allow frontend
+# CORS configuration to allow frontend to connect without CORS errors
 use Rack::Cors do
   allow do
     origins 'http://localhost:3000'
@@ -81,6 +81,8 @@ csv_data.map { |data|
   DB[:consumption].insert(:person_id => person_id, :pizza_id => pizza_id, :date => date)
 }
 
+# Get the absolute path of the main API file (api.rb) and require it
 require File.expand_path('../api/api', __FILE__)
 
+# Run the application in api.rb
 run Application
