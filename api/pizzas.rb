@@ -17,7 +17,8 @@ class Pizzas < Grape::API
     requires :meat_type, type: String, desc: "Meat type of the pizza"
   end
   post '/pizza' do
-    pizzas.insert(:meat_type => params[:meat_type])
+    id = pizzas.insert(:meat_type => params[:meat_type])
+    pizzas.where(id: id).first
   end
 
   # Endpoint to update a pizza
@@ -27,7 +28,8 @@ class Pizzas < Grape::API
     requires :meat_type, type: String, desc: "Meat type on the pizza"
   end
   put '/pizza' do
-    pizzas.where(id: params[:id]).update(:meat_type => params[:meat_type])
+    _ = pizzas.where(id: params[:id]).update(:meat_type => params[:meat_type])
+    pizzas.where(id: params[:id]).first
   end
 
   # Endpoint to delete a pizza
@@ -37,5 +39,6 @@ class Pizzas < Grape::API
   end
   delete '/pizza' do
     pizzas.where(id: params[:id]).delete
+    pizzas.all
   end
 end
