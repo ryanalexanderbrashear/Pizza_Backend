@@ -42,6 +42,7 @@ GEM
       ruby2_keywords (~> 0.0.1)
     mustermann-grape (1.0.1)
       mustermann (>= 1.0.0)
+    pg (1.2.3)
     rack (2.2.3)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -74,6 +75,7 @@ PLATFORMS
 
 DEPENDENCIES
   grape
+  pg
   rack
   rack-cors
   rack-test
