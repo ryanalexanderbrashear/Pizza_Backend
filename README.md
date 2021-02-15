@@ -2,8 +2,6 @@
 
 ## Setup
 
-In order to run this API, a local Postgres database with the name "pizza" is required.
-
 1. To install gems:
   Run the command **bundle** in the project root.
 
