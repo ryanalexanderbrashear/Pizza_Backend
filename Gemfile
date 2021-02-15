@@ -1,6 +1,8 @@
 source 'https://rubygems.org'
 gem 'rack'
+gem 'rack-test'
 gem 'grape'
 gem 'sequel'
 gem 'webrick'
+gem 'rspec'
 gem 'rack-cors', :require => 'rack/cors'

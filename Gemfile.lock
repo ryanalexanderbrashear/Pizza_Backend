@@ -47,6 +47,8 @@ GEM
       rack (>= 0.4)
     rack-cors (1.1.1)
       rack (>= 2.0.0)
+    rack-test (1.1.0)
+      rack (>= 1.0, < 3)
     rspec (3.10.0)
       rspec-core (~> 3.10.0)
       rspec-expectations (~> 3.10.0)
@@ -74,6 +76,7 @@ DEPENDENCIES
   grape
   rack
   rack-cors
+  rack-test
   rspec
   sequel
   webrick
