@@ -13,4 +13,18 @@ describe API::Root::Consumption do
       expect(last_response.status).to eq(200)
     end
   end
+
+  context 'GET /api/v1/consumptionStreaks' do
+    it 'returns 200' do
+      get '/api/v1/consumptionStreaks'
+      expect(last_response.status).to eq(200)
+    end
+  end
+
+  context 'GET /api/v1/consumptionByMonth' do
+    it 'returns 200' do
+      get '/api/v1/consumptionByMonth'
+      expect(last_response.status).to eq(200)
+    end
+  end
 end

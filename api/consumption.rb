@@ -26,7 +26,7 @@ class Consumption < Grape::API
     consumption_data.order(:date).all
   end
 
-    # Endpoint to get all consumption record streaks where more pizza was consumed the next day than the previous
+  # Endpoint to get all consumption record streaks where more pizza was consumed the next day than the previous
   get '/consumptionStreaks' do
     date_count = consumption.group_and_count(:date).order(:date)
     previousValue = date_count.first[:count]
