@@ -17,6 +17,6 @@ class People < Grape::API
     requires :name, type: String, desc: "Name of the person"
   end
   get '/person' do
-    people.where(:name => params[:name]).first.to_json
+    people.where(:name => params[:name]).first
   end
 end

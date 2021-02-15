@@ -23,7 +23,7 @@ class Consumption < Grape::API
     consumption_data = people.join(consumption, person_id: :id)
     consumption_data = pizza.join(consumption_data, pizza_id: :id)
     consumption_data = consumption_data.where(:meat_type => params[:meat_type])
-    consumption_data.all
+    consumption_data.order(:date).all
   end
 
     # Endpoint to get all consumption record streaks where more pizza was consumed the next day than the previous
