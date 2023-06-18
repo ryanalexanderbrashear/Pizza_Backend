@@ -4,6 +4,7 @@ class People < Grape::API
   version 'v1'
   format :json
 
+  # Use sequel to connect to the needed databases
   people = DB[:people]
 
   # Endpoint to get all people

@@ -4,6 +4,7 @@ class Pizzas < Grape::API
   version 'v1'
   format :json
 
+  # Use sequel to connect to the needed databases
   pizzas = DB[:pizzas]
 
   # Endpoint to retrieve all pizzas

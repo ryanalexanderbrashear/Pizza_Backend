@@ -4,6 +4,7 @@ class Consumption < Grape::API
   version 'v1'
   format :json
 
+  # Use sequel to connect to the needed databases
   consumption = DB[:consumption]
   pizza = DB[:pizzas]
   people = DB[:people]
